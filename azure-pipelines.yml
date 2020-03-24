@@ -1,4 +1,17 @@
 # Starter pipeline
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
+      
+      $appmodule = Get-Content -path "trial.txt"
+      write-host $appmodule
+      $modules_str = Get-ChildItem -Path Env:\BUILD_MODULES
+      $modules_arr = $modules_str.Value.split(",")
+      $modules_arr
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
