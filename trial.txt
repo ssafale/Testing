@@ -1,0 +1,36 @@
+import requests
+import re
+from urllib.request import urlopen
+import csv
+import urllib
+from collections import defaultdict
+from datetime import datetime
+from bs4 import BeautifulSoup
+url = 'https://connect.data.com/loginProcess'
+values ={'Email': 'safale.sachin@gmail.com',
+        'Password': 'Sweetheart070'}
+r = requests.post(url, data=values)
+#print (r.content)
+with open('urls.txt', 'r') as inf:
+    urls = (line.strip() for line in inf)
+    for url in urls:
+        #quote_page = 'https://connect.data.com/company/view/346004'
+        page = urllib.request.urlopen(url)
+        soup = BeautifulSoup(page.read(), 'html.parser')
+        tbody = soup.find('table', {"class": "result"})
+        rows = soup.find_all('tr')
+        for row in rows:
+            cols = [x.text.strip() for x in cols]
+            rep = ['\n', '\t', '\r']
+            for y in rep:
+                cols = [x.replace(y, '') for x in cols]
+                d = {}
+                for x in cols:
+                    d[x] = 1
+
+            with open('F:\index.csv', 'a') as csv_file:
+
+                writer = csv.writer(csv_file, delimiter=',', quoting=csv.QUOTE_ALL)
+                writer.writerow(cols)
+            print(cols)
+
