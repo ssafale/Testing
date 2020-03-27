@@ -1,0 +1,23 @@
+[
+    {
+        "id":  "defaultLogPath",
+        "title":  "Default Paths",
+        "isActive":  true,
+        "default":  true,
+        "display":  true
+    },
+    {
+        "id":  "fileProcessing",
+        "title":  "File Processing",
+        "isActive":  false,
+        "default":  false,
+        "display":  false
+    },
+    {
+        "id": "reports",
+        "title": "Reports",
+        "isActive": false,
+        "default": false,
+        "display": false
+    }
+]
